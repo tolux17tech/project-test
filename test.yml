@@ -35,6 +35,14 @@ pipeline:
               - dir: "'database'"
                 script: 
                   - sh "mvn clean install"
-    
+        - stage: "Test configuration"
+          parallel:
+            - stage: "Peformance Testing"
+              steps:
+                script:
+                  - dir: "'test'"
+                    script:
+                      - sh "mvn clean test -Dscope=performance"
+                
     
   
