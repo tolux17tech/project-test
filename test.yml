@@ -11,8 +11,10 @@ pipeline:
    
     - stage: "Build"
       steps: 
-      script: 
-        - sh "cd project && mvn clean test"
+        script: 
+          - dir: "'project'"
+            script:
+              - sh "mvn clean test"
     
     # - stage: "Database"
     #   steps:
