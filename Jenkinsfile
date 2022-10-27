@@ -13,12 +13,12 @@ node
   }
   stage('2.maven-Build')
   { 
-    sh 'mvn --version'
+    sh '${mavenHome}/bin/mvn --version'
   }
   stage('3.CodeQualityReport')
   {
      withSonarQubeEnv(credentialsId: 'sonarqubeconfigured') {
-     sh 'mvn sonar:sonar'
+     sh '${mavenHome}/bin/mvn sonar:sonar'
     }
   }
  stage('4.UploadWarNexus')
