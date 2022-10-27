@@ -13,10 +13,11 @@ pipeline:
       steps: 
       script: 
         - sh "cd project && mvn clean test"
-    - stage: "Database"
-      steps:
-      script: 
-        - sh "cd database && mvn clean test -Dscope=FlywayMigration"
+    
+    # - stage: "Database"
+    #   steps:
+    #   script: 
+    #     - sh "cd database && mvn clean test -Dscope=FlywayMigration"
     # - stage: "Deploy"
     #   steps: 
     #     -
