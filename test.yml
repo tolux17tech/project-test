@@ -5,9 +5,9 @@ pipeline:
     maven: 'maven' 
   post:
     success:
-      - mail bcc: 'my@box.com', body: 'Pipeline Built sucessfully', cc: '', from: '', replyTo: '', subject: 'Success', to: 'my@box.com'
+      - echo "Success"
     failure:
-      - mail bcc: 'my@box.com', body: 'Pipeline Failed', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'my@box.com'
+      - echo "yes"
   
   stages:
     - stage: "Checkout"
