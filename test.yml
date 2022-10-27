@@ -43,6 +43,22 @@ pipeline:
                   - dir: "'test'"
                     script:
                       - sh "mvn clean test -Dscope=performance"
+
+            - stage: "Regression Testing"
+              steps:
+                script:
+                  - dir: "'test'"
+                    script:
+                      - sh "mvn clean test -Dscope=regression; exit 1"
+
+            - stage: "Integration Testing"
+              steps:
+                script:
+                  - dir: "'test'"
+                    script:
+                      - sh "mvn clean test -Dscope=integration"
+                
+                
                 
     
   
