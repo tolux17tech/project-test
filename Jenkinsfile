@@ -12,7 +12,7 @@ node
   git credentialsId: 'GitCredentials', url: 'https://github.com/tolux17tech/project-test.git'
   }
   stage('mvn version'){
-    sh "$(mavenHome}/bin/mvn clean package"
+    sh "${mavenHome}/bin/mvn clean package"
    }
 
   }
