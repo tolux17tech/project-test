@@ -6,10 +6,10 @@ pipeline:
   post:
     success:
       script:
-        - mail bcc: 'my@box.com', body: 'Pipeline Built sucessfully', cc: '', from: '', replyTo: '', subject: 'Success', to: 'my@box.com'
+        - "mail bcc: 'my@box.com', body: 'Pipeline Built sucessfully', cc: '', from: '', replyTo: '', subject: 'Success', to: 'my@box.com'"
     failure:
       script:
-        - mail bcc: 'my@box.com', body: 'Pipeline Failed', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'my@box.com'
+        - "mail bcc: 'my@box.com', body: 'Pipeline Failed', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'my@box.com'"
   
   stages:
     - stage: "Checkout"
