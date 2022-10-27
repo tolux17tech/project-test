@@ -8,11 +8,18 @@ pipeline:
     - stage: "Checkout"
       steps: git "https://github.com/tolux17tech/project-test.git"
     
-    - stage: "Build"
+    - stage: "Test Project Folder"
       steps: 
         script: 
           - dir: "'project'"
             script:
               - sh "mvn clean test"
+    
+    - stage: "Test Database Folder"
+      steps:
+        script:
+          - dir: "'database'"
+            script: 
+              - sh "mvn clean test -Dscope=FlywayMigration"
     
   
