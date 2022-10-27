@@ -17,7 +17,9 @@ node
   }
   stage('3.CodeQualityReport')
   {
- // sh '${mavenHome}/bin/mvn sonar:sonar'
+     withSonarQubeEnv(credentialsId: 'sonarqubeconfigured') {
+     sh 'mvn sonar:sonar'
+    }
   }
  stage('4.UploadWarNexus')
         {
