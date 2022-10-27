@@ -27,12 +27,14 @@ pipeline:
           steps:
             script:
               - dir: "'project'"
-                script: "mvn clean install"
+                script: 
+                  - sh "mvn clean install"
         - stage: "mvn install for Database"
           steps:
             script:
               - dir: "'database'"
-                script: "mvn clean install"
+                script: 
+                  - sh "mvn clean install"
     
     
   
