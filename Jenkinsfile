@@ -11,23 +11,12 @@ node
   {
   git credentialsId: 'GitCredentials', url: 'https://github.com/tolux17tech/project-test.git'
   }
-  stage('2.maven-Build')
-  { 
-    sh '${mavenHome}/bin/mvn --version'
+  stage('mvn version'){
+    sh "$(mavenHome}/bin/mvn clean package"
+   }
+
   }
-  stage('3.CodeQualityReport')
-  {
-     withSonarQubeEnv(credentialsId: 'sonarqubeconfigured') {
-     sh '${mavenHome}/bin/mvn sonar:sonar'
-    }
-  }
- stage('4.UploadWarNexus')
-        {
-        //sh '${mavenHome}/bin/mvn clean deploy'
-        }
- stage('5.DeployTomcat')
-        {
-          // blocks
-       // deploy adapters: [tomcat9(credentialsId: 'Tomcat_Credentials', path: '', url: 'http://3.85.28.18:7777/')], contextPath: null, war: '**/*.war'
-        }   
-  } 
+
+
+
+
