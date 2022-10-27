@@ -21,5 +21,18 @@ pipeline:
           - dir: "'database'"
             script: 
               - sh "mvn clean test -Dscope=FlywayMigration"
+    - stage: "Deploy configuration"
+      stages:
+        - stage: "mvn install for project"
+          steps:
+            script:
+              - dir: "'project'"
+                script: "mvn clean install"
+        - stage: "mvn install for Database"
+          steps:
+            script:
+              - dir: "'database'"
+                script: "mvn clean install"
+    
     
   
